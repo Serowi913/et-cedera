@@ -4,7 +4,6 @@ pygame.init()
 fonts = pygame.font.get_fonts()
 
 window = pygame.display.set_mode((1200, 400))
-iteration = 0
 
 start_ticks = pygame.time.get_ticks() #starter tick
 
