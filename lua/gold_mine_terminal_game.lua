@@ -1,18 +1,3 @@
--- .\lua54 main.lua
-
---function int(str)
---    return tonumber(str)
---end
---
---print("Please enter your age:")
---local age = int(io.read())
---
---if age < 21 then
---    print("You are not of age to drink. You have " .. 21 - age .. " years until you can.")
---elseif age >= 21 then
---    print("You can drink.")
---end
-
 -- creates sleep function
 local clock = os.clock
 function sleep(n)  -- seconds
