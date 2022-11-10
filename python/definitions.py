@@ -15,3 +15,4 @@ def parse_for_definition(word):
     listx.pop(0)
 
     return listx
+
