@@ -1,5 +1,6 @@
 # Import module; initialize module
 import pygame
+
 pygame.init()
 
 # Gets the system fonts
@@ -11,6 +12,8 @@ window = pygame.display.set_mode((1200, 400))
 # Starter tick
 start_ticks = pygame.time.get_ticks()
 
+iterat = 0
+
 # Main loop variable
 running = True
 
@@ -19,7 +22,7 @@ while running:
 
     # Calculate how many seconds
     ticks = (pygame.time.get_ticks() - start_ticks) / 1000
-    
+
     # Concatenates from float to integer
     seconds = int(ticks)
 
@@ -31,22 +34,28 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-	# Creates the text object with each iteration of the font
-    font = pygame.font.SysFont(fonts[seconds], 60)
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                iterat += 1
+            if event.key == pygame.K_DOWN:
+                iterat -= 1
 
-	# Renders each text example into a blit-able object
+
+    # Creates the text object with each iteration of the font
+    font = pygame.font.SysFont(fonts[iterat], 60)
+
+    # Renders each text example into a blit-able object
     x = font.render("The QUICK Brown fox JUMPED Over the LAZY", True, (0, 0, 0))
     y = font.render("dOg 123456789:/?><()", True, (0, 0, 0))
-    z = font.render(fonts[seconds], True, (0, 0, 0))
-	
-	# Blits/displays the text on the screen
+    z = font.render(fonts[iterat], True, (0, 0, 0))
+
+    # Blits/displays the text on the screen
     window.blit(x, (0, 2))
     window.blit(y, (0, 100))
     window.blit(z, (0, 200))
 
-	# Prints the number and the name of each font
-    print(seconds, fonts[seconds])
+    # Prints the number and the name of each font
+    print(iterat, fonts[iterat])
 
-	# Updates the display
+    # Updates the display
     pygame.display.flip()
-
